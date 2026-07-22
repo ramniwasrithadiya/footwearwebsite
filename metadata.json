@@ -1,0 +1,6 @@
+{
+  "name": "Premium Footwear Manufacturer",
+  "description": "Luxury footwear e-commerce featuring retail shopping and dedicated bulk wholesale ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
