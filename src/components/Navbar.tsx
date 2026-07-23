@@ -37,10 +37,10 @@ export function Navbar() {
             <Link to="/contact" className="text-rose-800 hover:text-rose-950 font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Contact</Link>
             
             <div className="flex items-center space-x-4 lg:space-x-5 border-l border-rose-200 pl-6 lg:pl-8">
-              <Link to={user ? "/wishlist" : "/login"} className="flex flex-col items-center justify-center text-rose-800 hover:text-rose-950 transition-colors">
-                <User className="w-5 h-5 lg:w-6 lg:h-6 mb-0.5" strokeWidth={1.5} />
-                <span className="text-[10px] uppercase font-medium">{user ? getFirstName() : 'Login'}</span>
-              </Link>
+            <Link to={user ? "/profile" : "/login"} className="flex flex-col items-center justify-center text-rose-800 hover:text-rose-950 transition-colors">
+              <User className="w-5 h-5 lg:w-6 lg:h-6 mb-0.5" strokeWidth={1.5} />
+              <span className="text-[10px] uppercase font-medium">{user ? getFirstName() : 'Login'}</span>
+            </Link>
               <Link to="/wishlist" className="relative flex flex-col items-center justify-center text-rose-800 hover:text-rose-950 transition-colors">
                 <div className="relative">
                   <Heart className="w-5 h-5 lg:w-6 lg:h-6 mb-0.5" strokeWidth={1.5} />
@@ -66,9 +66,8 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <div className="flex items-center flex-shrink-0 md:hidden space-x-2 sm:space-x-4">
-            <Link to={user ? "/wishlist" : "/login"} className="flex flex-col items-center justify-center text-rose-800 hover:text-rose-950">
+            <Link to={user ? "/profile" : "/login"} className="flex flex-col items-center justify-center text-rose-800 hover:text-rose-950">
               <User className="w-5 h-5 sm:w-6 sm:h-6 mb-0.5" strokeWidth={1.5} />
               <span className="text-[9px] sm:text-[10px] uppercase font-medium leading-tight">{user ? getFirstName() : 'Login'}</span>
             </Link>

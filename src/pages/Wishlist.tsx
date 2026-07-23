@@ -7,8 +7,12 @@ import { Heart, X } from 'lucide-react';
 
 export function Wishlist() {
   const { wishlist, removeFromWishlist } = useWishlist();
-  const { user, logout } = useAuth();
+  const { user, loading, logout } = useAuth();
   const { addToCart } = useCart();
+
+  if (loading) {
+    return <div className="min-h-[80vh] flex items-center justify-center">Loading...</div>;
+  }
 
   if (!user) {
     return <Navigate to="/login" />;

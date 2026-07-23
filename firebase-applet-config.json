@@ -1,12 +1,12 @@
 {
-  "projectId": "centering-thought-mh7sp",
-  "appId": "1:450707309177:web:96715f4739529726b5caa8",
-  "apiKey": "AIzaSyCAMuEXLFlYgm_byG8q9NoAMucJU0XIjnk",
-  "authDomain": "centering-thought-mh7sp.firebaseapp.com",
-  "firestoreDatabaseId": "ai-studio-premiumfootwearm-be09328f-5fbb-4bd5-b810-8398a947e5b2",
-  "storageBucket": "centering-thought-mh7sp.firebasestorage.app",
-  "messagingSenderId": "450707309177",
+  "projectId": "emailmobileauth-8090c",
+  "appId": "1:579867788756:web:7c79b19f68f0f09bd80241",
+  "apiKey": "AIzaSyBJKelgnNneVhvqPA_XUQGNcEs9gXiwYtE",
+  "authDomain": "emailmobileauth-8090c.firebaseapp.com",
+  "firestoreDatabaseId": "",
+  "storageBucket": "emailmobileauth-8090c.firebasestorage.app",
+  "messagingSenderId": "579867788756",
   "measurementId": "",
-  "oAuthClientId": "450707309177-4mcobal2icvlhei6ffj6k0icjfbrpgq4.apps.googleusercontent.com",
+  "oAuthClientId": "",
   "recaptchaSiteKey": ""
 }

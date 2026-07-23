@@ -13,6 +13,7 @@ import { BecomeADealer } from './pages/BecomeADealer';
 import { ProductDetail } from './pages/ProductDetail';
 import { Login } from './pages/Login';
 import { Wishlist } from './pages/Wishlist';
+import { Profile } from './pages/Profile';
 import { CartProvider } from './CartContext';
 import { AuthProvider } from './AuthContext';
 import { WishlistProvider } from './WishlistContext';
@@ -37,6 +38,7 @@ function AppContent() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
       {!isLoginPage && <Footer />}

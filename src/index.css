@@ -30,3 +30,13 @@
   --color-yellow-900: #705228;
   --color-yellow-950: #402c12;
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

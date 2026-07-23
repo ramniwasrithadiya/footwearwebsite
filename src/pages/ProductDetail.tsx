@@ -5,6 +5,7 @@ import { ArrowLeft, Check, ShoppingBag, Heart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
 import { useAuth } from '../AuthContext';
+import { SizeGuideModal } from '../components/SizeGuideModal';
 
 export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -20,6 +21,7 @@ export function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
   const [quantity, setQuantity] = useState<number>(1);
   const [added, setAdded] = useState(false);
+  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
   const handleAddToCart = () => {
     addToCart({
@@ -60,8 +62,8 @@ export function ProductDetail() {
         {/* Product Info */}
         <div className="flex flex-col pt-4">
           <p className="text-sm font-medium text-yellow-600 uppercase tracking-widest mb-2">{product.category}</p>
-          <h1 className="text-3xl sm:text-4xl font-serif text-rose-950 mb-4">{product.name}</h1>
-          <p className="text-2xl font-light text-rose-950 mb-6">&#8377;{product.price.toLocaleString('en-IN')}</p>
+          <h1 className="text-xl sm:text-2xl lg:text-4xl font-serif text-rose-950 mb-3">{product.name}</h1>
+          <p className="text-lg sm:text-xl lg:text-2xl font-light text-rose-950 mb-6">&#8377;{product.price.toLocaleString('en-IN')}</p>
           
           <p className="text-rose-800 font-light leading-relaxed mb-8">
             {product.description}
@@ -85,14 +87,14 @@ export function ProductDetail() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
               <h3 className="text-sm font-medium text-rose-950">Size (UK/India)</h3>
-              <a href="#" className="text-sm text-yellow-600 hover:underline">Size Guide</a>
+              <button onClick={() => setIsSizeGuideOpen(true)} className="text-sm text-yellow-600 hover:underline">Size Guide</button>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {product.sizes.map(size => (
+            <div className="flex gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-1">
+              {product.sizes.filter(size => size >= 37 && size <= 42).map(size => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`w-12 h-12 flex items-center justify-center text-sm border ${selectedSize === size ? 'border-rose-400 text-white bg-rose-400' : 'border-rose-200 text-rose-950 hover:border-rose-400'} transition-colors`}
+                  className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-sm border ${selectedSize === size ? 'border-rose-400 text-white bg-rose-400' : 'border-rose-200 text-rose-950 hover:border-rose-400'} transition-colors`}
                 >
                   {size}
                 </button>
@@ -144,11 +146,12 @@ export function ProductDetail() {
               {inWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
             </button>
             <div className="text-center text-sm text-rose-700 pt-4 border-t border-rose-100">
-              <p>Free shipping on orders over &#8377;10,000.</p>
+              <p>Free shipping on purchase of any 3 sets</p>
             </div>
           </div>
         </div>
       </div>
+      <SizeGuideModal isOpen={isSizeGuideOpen} onClose={() => setIsSizeGuideOpen(false)} />
     </div>
   );
 }

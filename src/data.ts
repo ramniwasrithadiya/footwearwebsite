@@ -9,13 +9,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -30,13 +24,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -50,13 +38,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -71,13 +53,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -92,13 +68,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -113,13 +83,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -134,13 +98,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -155,13 +113,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -175,13 +127,7 @@ export const products: Product[] = [
     "description": "Premium patent leather heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -195,13 +141,7 @@ export const products: Product[] = [
     "description": "Premium gladiator heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -214,13 +154,7 @@ export const products: Product[] = [
     "description": "Premium lace-up heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -233,13 +167,7 @@ export const products: Product[] = [
     "description": "Premium dorsay pump crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -253,13 +181,7 @@ export const products: Product[] = [
     "description": "Premium chunky heel pump crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -272,13 +194,7 @@ export const products: Product[] = [
     "description": "Premium t-strap heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -291,13 +207,7 @@ export const products: Product[] = [
     "description": "Premium cone heel shoe crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -311,13 +221,7 @@ export const products: Product[] = [
     "description": "Premium wedge heel sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -330,13 +234,7 @@ export const products: Product[] = [
     "description": "Premium mary jane heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -349,13 +247,7 @@ export const products: Product[] = [
     "description": "Premium clear vinyl heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -368,13 +260,7 @@ export const products: Product[] = [
     "description": "Premium embellished evening heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -388,13 +274,7 @@ export const products: Product[] = [
     "description": "Premium slingback kitten heel crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "heels",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -408,13 +288,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -428,13 +302,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -449,13 +317,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -470,13 +332,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -491,13 +347,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -512,13 +362,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -533,13 +377,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -554,13 +392,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -574,13 +406,7 @@ export const products: Product[] = [
     "description": "Premium tassel loafer crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -593,13 +419,7 @@ export const products: Product[] = [
     "description": "Premium penny loafer crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -612,13 +432,7 @@ export const products: Product[] = [
     "description": "Premium oxford flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -631,13 +445,7 @@ export const products: Product[] = [
     "description": "Premium quilted ballet flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -650,13 +458,7 @@ export const products: Product[] = [
     "description": "Premium foldable travel flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -670,13 +472,7 @@ export const products: Product[] = [
     "description": "Premium embellished flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -690,13 +486,7 @@ export const products: Product[] = [
     "description": "Premium canvas slip-on crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -709,13 +499,7 @@ export const products: Product[] = [
     "description": "Premium velvet loafer crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -729,13 +513,7 @@ export const products: Product[] = [
     "description": "Premium mary jane flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -748,13 +526,7 @@ export const products: Product[] = [
     "description": "Premium woven leather flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -768,13 +540,7 @@ export const products: Product[] = [
     "description": "Premium cutout flat crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -788,13 +554,7 @@ export const products: Product[] = [
     "description": "Premium platform oxford crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "flats",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -809,13 +569,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -830,13 +584,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -851,13 +599,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -871,13 +613,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -892,13 +628,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -913,13 +643,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -933,13 +657,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -954,13 +672,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -973,13 +685,7 @@ export const products: Product[] = [
     "description": "Premium leather thong sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -992,13 +698,7 @@ export const products: Product[] = [
     "description": "Premium heeled mule sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1011,13 +711,7 @@ export const products: Product[] = [
     "description": "Premium lace-up sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1031,13 +725,7 @@ export const products: Product[] = [
     "description": "Premium toe ring sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1051,13 +739,7 @@ export const products: Product[] = [
     "description": "Premium chunky platform sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1071,13 +753,7 @@ export const products: Product[] = [
     "description": "Premium studded sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1090,13 +766,7 @@ export const products: Product[] = [
     "description": "Premium woven slide crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1110,13 +780,7 @@ export const products: Product[] = [
     "description": "Premium metallic ankle sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1130,13 +794,7 @@ export const products: Product[] = [
     "description": "Premium braided strap sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1150,13 +808,7 @@ export const products: Product[] = [
     "description": "Premium vinyl slide sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1169,13 +821,7 @@ export const products: Product[] = [
     "description": "Premium cork wedge sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1188,13 +834,7 @@ export const products: Product[] = [
     "description": "Premium slingback sandal crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "sandals",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1208,13 +848,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1228,13 +862,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1248,13 +876,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1269,13 +891,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isNewArrival": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1290,13 +906,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1310,13 +920,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1330,13 +934,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1351,13 +949,7 @@ export const products: Product[] = [
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
     "isBestSeller": true,
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1370,13 +962,7 @@ export const products: Product[] = [
     "description": "Premium sock boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1390,13 +976,7 @@ export const products: Product[] = [
     "description": "Premium riding boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1410,13 +990,7 @@ export const products: Product[] = [
     "description": "Premium snow boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1430,13 +1004,7 @@ export const products: Product[] = [
     "description": "Premium rain boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1450,13 +1018,7 @@ export const products: Product[] = [
     "description": "Premium shearling lined boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1469,13 +1031,7 @@ export const products: Product[] = [
     "description": "Premium hiker boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1488,13 +1044,7 @@ export const products: Product[] = [
     "description": "Premium cutout ankle boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown"
@@ -1507,13 +1057,7 @@ export const products: Product[] = [
     "description": "Premium peep toe bootie crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1527,13 +1071,7 @@ export const products: Product[] = [
     "description": "Premium fringe boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1547,13 +1085,7 @@ export const products: Product[] = [
     "description": "Premium motorcycle boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1567,13 +1099,7 @@ export const products: Product[] = [
     "description": "Premium wedge boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",
@@ -1587,13 +1113,7 @@ export const products: Product[] = [
     "description": "Premium patent leather boot crafted for ultimate comfort and style. Perfect for your everyday or special occasions.",
     "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "boots",
-    "sizes": [
-      36,
-      37,
-      38,
-      39,
-      40
-    ],
+    "sizes": [37, 38, 39, 40, 41, 42],
     "colors": [
       "Black",
       "Brown",

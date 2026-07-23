@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { auth, db } from '../lib/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { collection, doc, setDoc, query, where, getDocs } from 'firebase/firestore';
+import { useAuth } from '../AuthContext';
 
 export function Login() {
   const [view, setView] = useState<'login' | 'signup' | 'forgot'>('login');
@@ -21,6 +22,13 @@ export function Login() {
   const [message, setMessage] = useState('');
 
   const navigate = useNavigate();
+  const { user, loading: authLoading } = useAuth();
+
+  useEffect(() => {
+    if (user && !authLoading) {
+      navigate('/wishlist');
+    }
+  }, [user, authLoading, navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,8 +41,13 @@ export function Login() {
       const isMobile = !identifier.includes('@');
       
       if (isMobile) {
-        // Clean mobile number for lookup
-        const cleanMobile = identifier.replace(/\D/g, '');
+        // Clean mobile number for lookup (remove non-digits, take last 10 to ignore country code)
+        const cleanMobile = identifier.replace(/\D/g, '').slice(-10);
+
+        console.log("Login - Entered mobile by user:", identifier);
+        console.log("Login - Cleaned mobile number:", cleanMobile);
+        console.log("Login - Searching Firestore collection 'users' where mobile == ", cleanMobile);
+
         if (cleanMobile.length !== 10) {
           setError('Please enter a valid 10-digit mobile number.');
           setLoading(false);
@@ -44,12 +57,15 @@ export function Login() {
         const q = query(collection(db, 'users'), where('mobile', '==', cleanMobile));
         const querySnapshot = await getDocs(q);
         
+        console.log("Login - Number of documents found:", querySnapshot.size);
+
         if (querySnapshot.empty) {
           throw new Error('No account found with this mobile number.');
         }
         
         // Get the email associated with this mobile number
         loginEmail = querySnapshot.docs[0].data().email;
+        console.log("Login - Retrieved email:", loginEmail);
       } else {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(identifier)) {
@@ -62,11 +78,17 @@ export function Login() {
       await signInWithEmailAndPassword(auth, loginEmail, password);
       navigate('/wishlist');
     } catch (err: any) {
-      console.error(err);
+      console.error("Login Error:", err);
       if (err.message === 'No account found with this mobile number.') {
         setError(err.message);
-      } else {
+      } else if (err.code === 'auth/operation-not-allowed') {
+        setError('Email/Password authentication is disabled in Firebase. Please enable it in the Firebase Console under Authentication > Sign-in method.');
+      } else if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
         setError('Invalid credentials or account not found.');
+      } else if (err.code === 'auth/too-many-requests') {
+        setError('Too many failed login attempts. Please try again later.');
+      } else {
+        setError(err.message || 'An error occurred during login.');
       }
     } finally {
       setLoading(false);
@@ -85,7 +107,7 @@ export function Login() {
     }
 
     try {
-      const cleanMobile = mobile.replace(/\D/g, '');
+      const cleanMobile = mobile.replace(/\D/g, '').slice(-10);
       
       // Check if mobile already exists
       const q = query(collection(db, 'users'), where('mobile', '==', cleanMobile));
@@ -108,8 +130,16 @@ export function Login() {
 
       navigate('/wishlist');
     } catch (err: any) {
-      console.error(err);
-      setError(err.message || 'Failed to create account.');
+      console.error("Signup Error:", err);
+      if (err.code === 'auth/operation-not-allowed') {
+        setError('Email/Password authentication is disabled in Firebase. Please enable it in the Firebase Console under Authentication > Sign-in method.');
+      } else if (err.code === 'auth/email-already-in-use') {
+        setError('An account with this email already exists.');
+      } else if (err.code === 'auth/weak-password') {
+        setError('Password should be at least 6 characters.');
+      } else {
+        setError(err.message || 'Failed to create account.');
+      }
     } finally {
       setLoading(false);
     }
@@ -124,8 +154,14 @@ export function Login() {
       await sendPasswordResetEmail(auth, email);
       setMessage('Password reset email sent. Check your inbox.');
     } catch (err: any) {
-      console.error(err);
-      setError('Failed to send password reset email. Ensure the email is registered.');
+      console.error("Forgot Password Error:", err);
+      if (err.code === 'auth/user-not-found') {
+        setError('No account found with this email.');
+      } else if (err.code === 'auth/invalid-email') {
+        setError('Please enter a valid email address.');
+      } else {
+        setError(err.message || 'Failed to send password reset email.');
+      }
     } finally {
       setLoading(false);
     }
@@ -136,18 +172,18 @@ export function Login() {
       <div className="sm:mx-auto w-full sm:max-w-[440px]">
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden border border-gray-200">
           {/* Header */}
-          <div className="bg-white/90 backdrop-blur-md border-b border-rose-200 px-4 sm:px-6 py-8 sm:py-10 relative overflow-hidden">
+          <div className="bg-white/90 backdrop-blur-md border-b border-rose-200 px-4 sm:px-6 py-6 sm:py-8 relative overflow-hidden">
             <button 
               onClick={() => navigate(-1)} 
               className="absolute top-4 left-4 text-rose-800 hover:text-rose-950 transition-colors z-10"
             >
-              <div className="bg-rose-50 rounded-full p-1.5 hover:bg-rose-100 transition-colors">
-                <X className="w-5 h-5" />
+              <div className="bg-rose-50 rounded-full p-1 sm:p-1.5 hover:bg-rose-100 transition-colors">
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </button>
-            <div className="flex flex-row items-center justify-center relative z-10 space-x-2 text-center mt-4 sm:mt-0 px-8 sm:px-0">
-              <span className="text-2xl sm:text-3xl">👣</span>
-              <h1 className="text-rose-950 font-serif text-xl sm:text-3xl font-bold tracking-tight truncate">
+            <div className="flex flex-row items-center justify-center relative z-10 space-x-2 text-center px-6 sm:px-0 mt-1 sm:mt-0">
+              <span className="text-xl sm:text-3xl">👣</span>
+              <h1 className="text-rose-950 font-serif text-lg sm:text-3xl font-bold tracking-tight truncate">
                 HandcraftedHeels
               </h1>
             </div>
@@ -271,8 +307,12 @@ export function Login() {
                     type="tel"
                     value={mobile}
                     onChange={(e) => {
-                      const val = e.target.value.replace(/\D/g, '');
-                      if (val.length <= 10) setMobile(val);
+                      let val = e.target.value.replace(/\D/g, '');
+                      // If it has country code prefix like 91 and total length > 10, extract the last 10
+                      if (val.length > 10) {
+                        val = val.slice(-10);
+                      }
+                      setMobile(val);
                     }}
                     className="block w-full bg-transparent text-base text-gray-900 focus:outline-none focus:ring-0"
                     placeholder="Enter 10-digit mobile no."
