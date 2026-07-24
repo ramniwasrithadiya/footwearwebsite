@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+const fs = require('fs');
+
+const code = `import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { Product } from './types';
 import { useAuth } from './AuthContext';
 import api from './api/axios';
@@ -126,3 +128,6 @@ export function useCart() {
   }
   return context;
 }
+`;
+
+fs.writeFileSync('src/CartContext.tsx', code);

@@ -13,6 +13,7 @@ import wishlistRoutes from './server/routes/wishlistRoutes';
 import orderRoutes from './server/routes/orderRoutes';
 import adminRoutes from './server/routes/adminRoutes';
 import dealerRoutes from './server/routes/dealerRoutes';
+import cartRoutes from './server/routes/cartRoutes';
 
 dotenv.config();
 
@@ -96,6 +97,7 @@ async function startServer() {
   app.use('/api/orders', orderRoutes);
   app.use('/api/admin', adminRoutes);
   app.use('/api/dealer', dealerRoutes);
+  app.use('/api/cart', cartRoutes);
 
   // Fallback for previous endpoint URLs used in the app if they were different
   app.use('/api/auth/register.php', authRoutes);

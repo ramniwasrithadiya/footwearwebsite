@@ -9,6 +9,7 @@ export interface Product {
   isBestSeller?: boolean;
   sizes: number[];
   colors: string[];
+  stock?: {size: number, quantity: number}[];
 }
 
 export interface Review {

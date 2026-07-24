@@ -25,7 +25,7 @@ export function Profile() {
     async function fetchOrders() {
       if (!user) return;
       try {
-        const response = await api.get(`/orders?firebase_uid=${user.uid}`);
+        const response = await api.get(`/orders`);
         if (response.data && response.data.success) {
           setOrders(response.data.orders);
         }

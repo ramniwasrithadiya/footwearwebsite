@@ -5,9 +5,10 @@ CREATE TABLE IF NOT EXISTS users (
   last_name VARCHAR(100),
   full_name VARCHAR(200),
   email VARCHAR(255) NOT NULL,
-  mobile VARCHAR(20) NOT NULL UNIQUE,
+  mobile VARCHAR(20) NOT NULL,
   is_admin BOOLEAN DEFAULT FALSE,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS products (
@@ -44,8 +45,9 @@ CREATE TABLE IF NOT EXISTS product_stock (
 
 CREATE TABLE IF NOT EXISTS wishlist (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT, guest_email VARCHAR(255), guest_mobile VARCHAR(20), guest_name VARCHAR(200), address TEXT, 
+  user_id INT NOT NULL,
   product_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
   UNIQUE KEY unique_wishlist (user_id, product_id)
@@ -53,19 +55,39 @@ CREATE TABLE IF NOT EXISTS wishlist (
 
 CREATE TABLE IF NOT EXISTS cart (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT, guest_email VARCHAR(255), guest_mobile VARCHAR(20), guest_name VARCHAR(200), address TEXT, 
+  user_id INT NOT NULL,
   product_id INT NOT NULL,
   size INT NOT NULL,
   quantity INT DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
   UNIQUE KEY unique_cart (user_id, product_id, size)
 );
 
+CREATE TABLE IF NOT EXISTS addresses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  mobile VARCHAR(20),
+  email VARCHAR(255),
+  address_line_1 TEXT,
+  address_line_2 TEXT,
+  landmark VARCHAR(255),
+  city VARCHAR(100),
+  state VARCHAR(100),
+  pincode VARCHAR(20),
+  country VARCHAR(100),
+  is_default BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS orders (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT, guest_email VARCHAR(255), guest_mobile VARCHAR(20), guest_name VARCHAR(200), address TEXT, 
+  user_id INT NOT NULL,
   total_amount DECIMAL(10, 2) NOT NULL,
+  payment_method VARCHAR(50),
   payment_status VARCHAR(50) DEFAULT 'pending',
   order_status VARCHAR(50) DEFAULT 'processing',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

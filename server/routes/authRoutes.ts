@@ -1,5 +1,6 @@
 import express from 'express';
 import pool from '../db';
+import { verifyAuth, AuthRequest } from '../middleware/authMiddleware';
 
 const router = express.Router();
 
@@ -47,17 +48,15 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', verifyAuth, async (req: AuthRequest, res) => {
   try {
-    const { firebase_uid } = req.query;
-    if (!firebase_uid) {
-      return res.status(400).json({ message: 'firebase_uid is required.', success: false });
-    }
-
-    const [rows]: any = await pool.query('SELECT * FROM users WHERE firebase_uid = ? LIMIT 1', [firebase_uid]);
-    
-    if (rows.length > 0) {
-      res.status(200).json({ success: true, profile: rows[0] });
+    const user = req.mysqlUser;
+    if (user) {
+      const [addresses]: any = await pool.query('SELECT * FROM addresses WHERE user_id = ? AND is_default = 1 LIMIT 1', [user.id]);
+      if (addresses.length > 0) {
+        user.address = addresses[0].address_line_1;
+      }
+      res.status(200).json({ success: true, profile: user });
     } else {
       res.status(404).json({ message: 'Profile not found.', success: false });
     }
@@ -67,13 +66,14 @@ router.get('/profile', async (req, res) => {
   }
 });
 
+export default router;
+
 router.get('/mobile_lookup', async (req, res) => {
   try {
     const { mobile } = req.query;
     if (!mobile) {
       return res.status(400).json({ message: 'mobile is required.', success: false });
     }
-
     const [rows]: any = await pool.query('SELECT email FROM users WHERE mobile = ? LIMIT 1', [mobile]);
     
     if (rows.length > 0) {
@@ -86,5 +86,3 @@ router.get('/mobile_lookup', async (req, res) => {
     res.status(500).json({ message: 'Something went wrong', success: false });
   }
 });
-
-export default router;

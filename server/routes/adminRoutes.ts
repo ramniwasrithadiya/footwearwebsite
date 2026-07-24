@@ -1,5 +1,6 @@
 import express from 'express';
 import pool from '../db';
+import { verifyAuth, AuthRequest } from '../middleware/authMiddleware';
 import multer from 'multer';
 import path from 'path';
 
@@ -16,32 +17,23 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Admin Middleware
-const isAdmin = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-  const firebase_uid = req.headers['authorization']?.split('Bearer ')[1];
-  if (!firebase_uid) {
-    return res.status(401).json({ message: 'Unauthorized', success: false });
-  }
-  
+const isAdmin = [verifyAuth, async (req: AuthRequest, res: express.Response, next: express.NextFunction) => {
   try {
-    const [users]: any = await pool.query('SELECT is_admin FROM users WHERE firebase_uid = ? LIMIT 1', [firebase_uid]);
-    if (users.length > 0 && users[0].is_admin) {
+    if (req.mysqlUser && req.mysqlUser.is_admin) {
       next();
     } else {
-      res.status(403).json({ message: 'Forbidden', success: false });
+      res.status(403).json({ message: 'Forbidden: Admin access required', success: false });
     }
   } catch (error) {
-    res.status(500).json({ message: 'Server error', success: false });
+    console.error('Admin Auth Error:', error);
+    res.status(500).json({ message: 'Internal Server Error', success: false });
   }
-};
+}];
 
 // Check if user is admin
-router.get('/check', async (req, res) => {
-  const firebase_uid = req.headers['authorization']?.split('Bearer ')[1];
-  if (!firebase_uid) return res.json({ isAdmin: false });
-  
+router.get('/check', verifyAuth, async (req: AuthRequest, res) => {
   try {
-    const [users]: any = await pool.query('SELECT is_admin FROM users WHERE firebase_uid = ? LIMIT 1', [firebase_uid]);
-    res.json({ isAdmin: users.length > 0 && users[0].is_admin });
+    res.json({ isAdmin: req.mysqlUser?.is_admin === 1 });
   } catch (error) {
     res.json({ isAdmin: false });
   }
@@ -58,11 +50,11 @@ router.post('/products', isAdmin, upload.array('images', 10), async (req, res) =
     );
     const productId = productRes.insertId;
 
-    if (req.files && Array.isArray(req.files)) {
-      for (let i = 0; i < req.files.length; i++) {
+    if ((req as any).files && Array.isArray((req as any).files)) {
+      for (let i = 0; i < (req as any).files.length; i++) {
         await pool.query(
           'INSERT INTO product_images (product_id, image_url, sort_order) VALUES (?, ?, ?)',
-          [productId, `/uploads/${req.files[i].filename}`, i]
+          [productId, `/uploads/${(req as any).files[i].filename}`, i]
         );
       }
     }
@@ -127,3 +119,23 @@ router.get('/dealer-requests', isAdmin, async (req, res) => {
 });
 
 export default router;
+
+// Orders API
+router.get('/orders', isAdmin, async (req, res) => {
+  try {
+    const [orders]: any = await pool.query('SELECT * FROM orders ORDER BY created_at DESC');
+    res.status(200).json({ success: true, orders });
+  } catch (error: any) {
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+// Customers API
+router.get('/customers', isAdmin, async (req, res) => {
+  try {
+    const [customers]: any = await pool.query('SELECT * FROM users ORDER BY created_at DESC');
+    res.status(200).json({ success: true, customers });
+  } catch (error: any) {
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});

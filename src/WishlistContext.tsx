@@ -32,7 +32,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     if (user) {
       const loadWishlist = async () => {
         try {
-          const response = await api.get(`/wishlist?firebase_uid=${user.uid}`);
+          const response = await api.get(`/wishlist`);
           let loadedWishlist: Product[] = [];
           
           if (response.data && response.data.success) {
@@ -45,7 +45,6 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
             if (!loadedWishlist.find(p => p.id === pendingProduct.id)) {
               loadedWishlist.push(pendingProduct);
               await api.post('/wishlist', {
-                firebase_uid: user.uid,
                 items: loadedWishlist
               });
               showToast('Added to Wishlist');
@@ -69,7 +68,6 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     if (user) {
       try {
         await api.post('/wishlist', {
-          firebase_uid: user.uid,
           items: newWishlist
         });
       } catch (error: any) {

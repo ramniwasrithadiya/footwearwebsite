@@ -105,6 +105,14 @@ export function ProductDetail() {
                 </button>
               ))}
             </div>
+            {(() => {
+              const stockItem = product.stock?.find(s => s.size === selectedSize);
+              const qty = stockItem ? stockItem.quantity : 0;
+              if (qty === 0) return <p className="text-red-500 mt-2 text-sm font-medium">Out of Stock</p>;
+              if (qty >= 1 && qty <= 5) return <p className="text-orange-500 mt-2 text-sm font-medium">Only {qty} pairs left</p>;
+              if (qty >= 6 && qty <= 10) return <p className="text-yellow-600 mt-2 text-sm font-medium">Limited Stock</p>;
+              return <p className="text-green-600 mt-2 text-sm font-medium">In Stock</p>;
+            })()}
           </div>
 
           <div className="mb-8">
@@ -123,7 +131,7 @@ export function ProductDetail() {
                 className="w-12 h-full text-center border-none focus:ring-0 text-rose-950 font-medium"
               />
               <button 
-                onClick={() => setQuantity(quantity + 1)}
+                onClick={() => { const stockItem = product.stock?.find(s => s.size === selectedSize); const maxQty = stockItem ? stockItem.quantity : 0; if (quantity < maxQty) setQuantity(quantity + 1); }}
                 className="w-10 h-full flex items-center justify-center text-rose-700 hover:text-rose-950 hover:bg-rose-50"
               >
                 +
@@ -134,7 +142,7 @@ export function ProductDetail() {
           <div className="flex flex-col space-y-4">
             <button 
               onClick={handleAddToCart}
-              disabled={added}
+              disabled={added || (() => { const stockItem = product.stock?.find(s => s.size === selectedSize); return !stockItem || stockItem.quantity === 0; })()}
               className={`w-full py-4 flex items-center justify-center font-medium transition-colors ${added ? 'bg-green-600 text-white' : 'bg-rose-400 text-white hover:bg-rose-500'}`}
             >
               {added ? (

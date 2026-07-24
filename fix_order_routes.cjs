@@ -1,4 +1,5 @@
-import express from 'express';
+const fs = require('fs');
+let code = `import express from 'express';
 import pool from '../db';
 import { verifyAuth, verifyOptionalAuth, AuthRequest } from '../middleware/authMiddleware';
 
@@ -12,13 +13,13 @@ router.get('/', verifyAuth, async (req: AuthRequest, res) => {
 
     const formattedOrders = [];
     for (const row of orders) {
-      const [items]: any = await pool.query(`
+      const [items]: any = await pool.query(\`
         SELECT oi.*, p.name, pi.image_url 
         FROM order_items oi 
         JOIN products p ON oi.product_id = p.id 
         LEFT JOIN product_images pi ON p.id = pi.product_id 
         WHERE oi.order_id = ? GROUP BY oi.id LIMIT 1
-      `, [row.id]);
+      \`, [row.id]);
       
       formattedOrders.push({
         id: row.id.toString(),
@@ -62,7 +63,7 @@ router.post('/', verifyOptionalAuth, async (req: AuthRequest, res) => {
           tempUid = existingUsers[0].firebase_uid;
         }
       } else {
-        tempUid = `guest_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+        tempUid = \`guest_\${Date.now()}_\${Math.random().toString(36).substring(7)}\`;
         const [newUser]: any = await pool.query(
           'INSERT INTO users (firebase_uid, first_name, last_name, email, mobile) VALUES (?, ?, ?, ?, ?)',
           [tempUid, firstName, lastName, email, mobile]
@@ -76,45 +77,23 @@ router.post('/', verifyOptionalAuth, async (req: AuthRequest, res) => {
       return res.status(400).json({ success: false, message: 'User information is required' });
     }
 
-    const connection = await pool.getConnection();
-    await connection.beginTransaction();
+    const [orderRes]: any = await pool.query(
+      'INSERT INTO orders (user_id, total_amount, payment_status, order_status) VALUES (?, ?, ?, ?)',
+      [user_id, totalAmount, paymentStatus || 'pending', 'processing']
+    );
 
-    let orderId;
-    try {
-      const [orderRes]: any = await connection.query(
-        'INSERT INTO orders (user_id, total_amount, payment_status, order_status) VALUES (?, ?, ?, ?)',
-        [user_id, totalAmount, paymentStatus || 'pending', 'processing']
+    const orderId = orderRes.insertId;
+
+    for (const item of items) {
+      await pool.query(
+        'INSERT INTO order_items (order_id, product_id, size, quantity, price) VALUES (?, ?, ?, ?, ?)',
+        [orderId, item.product.id, item.size, item.quantity, item.product.price]
       );
-
-      orderId = orderRes.insertId;
-
-      if (guestInfo && guestInfo.address) {
-        await connection.query(
-          `INSERT INTO addresses 
-          (user_id, first_name, last_name, email, mobile, address_line_1, is_default) 
-          VALUES (?, ?, ?, ?, ?, ?, ?)`,
-          [user_id, guestInfo.firstName, guestInfo.lastName, guestInfo.email, guestInfo.mobile, guestInfo.address, 1]
-        );
-      }
-
-      for (const item of items) {
-        await connection.query(
-          'INSERT INTO order_items (order_id, product_id, size, quantity, price) VALUES (?, ?, ?, ?, ?)',
-          [orderId, item.product.id, item.size, item.quantity, item.product.price]
-        );
-        
-        await connection.query(
-          'UPDATE product_stock SET quantity = GREATEST(quantity - ?, 0) WHERE product_id = ? AND size = ?',
-          [item.quantity, item.product.id, item.size]
-        );
-      }
-
-      await connection.commit();
-    } catch (err) {
-      await connection.rollback();
-      throw err;
-    } finally {
-      connection.release();
+      
+      await pool.query(
+        'UPDATE product_stock SET quantity = GREATEST(quantity - ?, 0) WHERE product_id = ? AND size = ?',
+        [item.quantity, item.product.id, item.size]
+      );
     }
 
     res.status(201).json({ 
@@ -130,3 +109,5 @@ router.post('/', verifyOptionalAuth, async (req: AuthRequest, res) => {
 });
 
 export default router;
+`;
+fs.writeFileSync('server/routes/orderRoutes.ts', code);

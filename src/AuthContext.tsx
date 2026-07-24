@@ -9,6 +9,7 @@ interface UserProfile {
   lastName?: string;
   email: string;
   mobile: string;
+  address?: string;
 }
 
 interface AuthContextType {
@@ -29,9 +30,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       if (user) {
-        localStorage.setItem('auth_token', user.uid);
+        const token = await user.getIdToken();
+        localStorage.setItem('auth_token', token);
         try {
-          const response = await api.get(`/auth/profile?firebase_uid=${user.uid}`);
+          const response = await api.get(`/auth/profile`);
           if (response.data && response.data.success) {
             const data = response.data.profile;
             setProfile({
@@ -40,6 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               lastName: data.last_name,
               email: data.email,
               mobile: data.mobile,
+              address: data.address,
             });
           } else {
             setProfile(null);

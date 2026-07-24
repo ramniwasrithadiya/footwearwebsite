@@ -38,7 +38,8 @@ export function Checkout() {
         firstName: profile.firstName || '',
         lastName: profile.lastName || '',
         email: profile.email || '',
-        mobile: profile.mobile || ''
+        mobile: profile.mobile || '',
+        address: profile.address || ''
       }));
     }
   }, [profile]);
@@ -137,7 +138,7 @@ export function Checkout() {
   const processOrderSuccess = async (razorpayOrderId: string) => {
     try {
       const orderData = {
-        firebase_uid: user?.uid,
+        
         guestInfo: formData,
         totalAmount: total,
         items: items,
