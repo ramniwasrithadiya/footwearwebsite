@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User, onAuthStateChanged, signOut } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-import { auth, db } from './lib/firebase';
+import { auth } from './lib/firebase';
+import api from './api/axios';
 
 interface UserProfile {
-  fullName: string;
+  fullName?: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   mobile: string;
 }
@@ -27,16 +29,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       if (user) {
+        localStorage.setItem('auth_token', user.uid);
         try {
-          const docRef = doc(db, 'users', user.uid);
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists()) {
-            setProfile(docSnap.data() as UserProfile);
+          const response = await api.get(`/auth/profile?firebase_uid=${user.uid}`);
+          if (response.data && response.data.success) {
+            const data = response.data.profile;
+            setProfile({
+              fullName: data.full_name,
+              firstName: data.first_name,
+              lastName: data.last_name,
+              email: data.email,
+              mobile: data.mobile,
+            });
           } else {
             setProfile(null);
           }
-        } catch (error) {
-          console.error("Error fetching user profile:", error);
+        } catch (error: any) {
+          console.error("Error fetching user profile from MySQL:", error);
           setProfile(null);
         }
       } else {
@@ -49,6 +58,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = async () => {
+    localStorage.removeItem('auth_token');
     await signOut(auth);
   };
 

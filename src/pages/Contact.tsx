@@ -57,7 +57,6 @@ export function Contact() {
                 <option>General Enquiry</option>
                 <option>Wholesale Order</option>
                 <option>Retail Order Tracking</option>
-                <option>Become a Dealer</option>
               </select>
             </div>
             <div>

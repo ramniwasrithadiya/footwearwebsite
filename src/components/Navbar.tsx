@@ -12,6 +12,9 @@ export function Navbar() {
   const { user, profile } = useAuth();
   
   const getFirstName = () => {
+    if (profile?.firstName) {
+      return profile.firstName;
+    }
     if (profile?.fullName) {
       return profile.fullName.split(' ')[0];
     }
@@ -109,7 +112,8 @@ export function Navbar() {
         <div className="md:hidden absolute top-full left-0 right-0 w-full bg-white border-b border-rose-200 shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link to="/" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-rose-950 hover:bg-rose-50">Home</Link>
-            <Link to="/shop" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-rose-950 hover:bg-rose-50">Shop Retail</Link>
+            <Link to="/shop" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-rose-950 hover:bg-rose-50">Shop</Link>
+            <Link to="/bulk-orders" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-rose-950 hover:bg-rose-50">Become a Dealer</Link>
             <Link to="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-rose-950 hover:bg-rose-50">About Us</Link>
             <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-rose-950 hover:bg-rose-50">Contact</Link>
           </div>

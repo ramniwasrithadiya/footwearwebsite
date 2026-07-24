@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { products } from '../data';
+import { useProducts } from '../ProductsContext';
 import { ArrowLeft, Check, ShoppingBag, Heart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
@@ -9,7 +9,12 @@ import { SizeGuideModal } from '../components/SizeGuideModal';
 
 export function ProductDetail() {
   const { id } = useParams<{ id: string }>();
+  const { products } = useProducts();
   const product = products.find(p => p.id === id) || products[0];
+
+  if (!product) {
+    return <div className="p-20 text-center">Loading product...</div>;
+  }
   const { addToCart } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { user } = useAuth();
@@ -17,8 +22,8 @@ export function ProductDetail() {
   
   const inWishlist = isInWishlist(product.id);
   
-  const [selectedSize, setSelectedSize] = useState<number>(product.sizes[0]);
-  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
+  const [selectedSize, setSelectedSize] = useState<number>(product.sizes?.[0] || 37);
+  const [selectedColor, setSelectedColor] = useState<string>(product.colors?.[0] || 'Black');
   const [quantity, setQuantity] = useState<number>(1);
   const [added, setAdded] = useState(false);
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);

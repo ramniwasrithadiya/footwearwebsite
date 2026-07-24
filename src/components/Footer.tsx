@@ -36,10 +36,8 @@ export function Footer() {
             <h4 className="text-lg font-medium mb-4">Business</h4>
             <ul className="space-y-2 text-sm text-rose-800">
               <li><Link to="/bulk-orders" className="hover:text-yellow-600 transition-colors">Wholesale Portal</Link></li>
-              <li><Link to="/become-a-dealer" className="hover:text-yellow-600 transition-colors">Become a Dealer</Link></li>
               <li><Link to="/faq" className="hover:text-yellow-600 transition-colors">FAQ</Link></li>
               <li><a href="#" className="hover:text-yellow-600 transition-colors text-yellow-500">Download Catalog (PDF)</a></li>
-              <li><Link to="/contact" className="hover:text-yellow-600 transition-colors">Dealer Login</Link></li>
             </ul>
           </div>
 

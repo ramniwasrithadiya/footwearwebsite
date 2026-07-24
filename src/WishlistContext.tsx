@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { Product } from './types';
 import { useAuth } from './AuthContext';
-import { db } from './lib/firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import api from './api/axios';
 import { AnimatePresence, motion } from 'motion/react';
 import { Check } from 'lucide-react';
 
@@ -28,17 +27,16 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     }, 3000);
   };
 
-  // Load wishlist from Firestore
+  // Load wishlist from MySQL Backend
   useEffect(() => {
     if (user) {
       const loadWishlist = async () => {
         try {
-          const docRef = doc(db, 'wishlists', user.uid);
-          const docSnap = await getDoc(docRef);
+          const response = await api.get(`/wishlist?firebase_uid=${user.uid}`);
           let loadedWishlist: Product[] = [];
           
-          if (docSnap.exists()) {
-            loadedWishlist = docSnap.data().items || [];
+          if (response.data && response.data.success) {
+            loadedWishlist = response.data.items || [];
           }
           
           const pendingStr = localStorage.getItem('pendingWishlistProduct');
@@ -46,15 +44,18 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
             const pendingProduct = JSON.parse(pendingStr) as Product;
             if (!loadedWishlist.find(p => p.id === pendingProduct.id)) {
               loadedWishlist.push(pendingProduct);
-              await setDoc(docRef, { items: loadedWishlist, updatedAt: new Date().toISOString() });
+              await api.post('/wishlist', {
+                firebase_uid: user.uid,
+                items: loadedWishlist
+              });
               showToast('Added to Wishlist');
             }
             localStorage.removeItem('pendingWishlistProduct');
           }
 
           setWishlist(loadedWishlist);
-        } catch (error) {
-          console.error("Error loading wishlist", error);
+        } catch (error: any) {
+          console.error("Error loading wishlist from server", error);
         }
       };
       loadWishlist();
@@ -63,16 +64,16 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     }
   }, [user]);
 
-  // Sync wishlist to Firestore
+  // Sync wishlist to MySQL Backend
   const syncWishlist = async (newWishlist: Product[]) => {
     if (user) {
       try {
-        await setDoc(doc(db, 'wishlists', user.uid), {
-          items: newWishlist,
-          updatedAt: new Date().toISOString()
+        await api.post('/wishlist', {
+          firebase_uid: user.uid,
+          items: newWishlist
         });
-      } catch (error) {
-        console.error("Error saving wishlist", error);
+      } catch (error: any) {
+        console.error("Error saving wishlist to server", error);
       }
     }
   };

@@ -76,80 +76,13 @@ export function CartSidebar() {
               <span className="text-lg font-medium">&#8377;{total.toLocaleString('en-IN')}</span>
             </div>
             <p className="text-xs text-rose-700 mb-6">Shipping and taxes calculated at checkout.</p>
-            <button 
-              onClick={async () => {
-                const loadRazorpayScript = () => {
-                  return new Promise((resolve) => {
-                    const script = document.createElement("script");
-                    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-                    script.onload = () => resolve(true);
-                    script.onerror = () => resolve(false);
-                    document.body.appendChild(script);
-                  });
-                };
-                
-                const res = await loadRazorpayScript();
-                if (!res) {
-                  alert("Razorpay SDK failed to load. Are you online?");
-                  return;
-                }
-
-                try {
-                  const data = await fetch('/api/create-razorpay-order', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ amount: total })
-                  }).then((t) => t.json());
-
-                  if (data.error) {
-                    alert(data.error);
-                    return;
-                  }
-                  
-                  if (data.isMock) {
-                    alert("Test Mode: Payment flow simulated successfully (Razorpay API keys not configured).");
-                    setIsCartOpen(false);
-                    return;
-                  }
-
-                  const options = {
-                    key: data.keyId,
-                    amount: data.amount,
-                    currency: data.currency,
-                    name: "HandcraftedHeels",
-                    description: "Test Transaction",
-                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
-                    order_id: data.id,
-                    handler: async function (response: any) {
-                      const verifyData = await fetch('/api/verify-razorpay-payment', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(response)
-                      }).then((t) => t.json());
-                      
-                      if (verifyData.success) {
-                        alert("Payment successful!");
-                        setIsCartOpen(false);
-                      } else {
-                        alert("Payment verification failed");
-                      }
-                    },
-                    theme: {
-                      color: "#4c0519" // rose-950
-                    }
-                  };
-                  
-                  const paymentObject = new (window as any).Razorpay(options);
-                  paymentObject.open();
-                } catch (error) {
-                  console.error(error);
-                  alert("Error creating order");
-                }
-              }}
-              className="w-full py-4 bg-rose-950 text-white font-medium hover:bg-rose-900 transition-colors"
+            <Link 
+              to="/checkout"
+              onClick={() => setIsCartOpen(false)}
+              className="w-full py-4 bg-rose-950 text-white font-medium hover:bg-rose-900 transition-colors flex justify-center items-center"
             >
               Checkout
-            </button>
+            </Link>
           </div>
         )}
       </div>

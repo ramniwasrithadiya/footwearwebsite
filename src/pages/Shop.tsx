@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { products } from '../data';
+import { useProducts } from '../ProductsContext';
 import { ProductCard } from '../components/ProductCard';
 import { Filter, SlidersHorizontal, ChevronDown } from 'lucide-react';
 
 export function Shop() {
+  const { products, loading } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialFilter = searchParams.get('filter') || 'all';
   const [filter, setFilter] = useState<string>(initialFilter);

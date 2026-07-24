@@ -12,6 +12,7 @@ interface CartContextType {
   items: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (index: number) => void;
+  clearCart: () => void;
   isCartOpen: boolean;
   setIsCartOpen: (isOpen: boolean) => void;
 }
@@ -27,12 +28,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setIsCartOpen(true);
   };
 
+  const clearCart = () => setItems([]);
   const removeFromCart = (index: number) => {
     setItems(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, isCartOpen, setIsCartOpen }}>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart, clearCart, isCartOpen, setIsCartOpen }}>
       {children}
     </CartContext.Provider>
   );

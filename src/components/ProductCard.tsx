@@ -39,6 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
       >
         <Heart className="w-5 h-5" fill={inWishlist ? "currentColor" : "none"} />
       </button>
+
       <Link to={`/shop/${product.id}`} className="relative block overflow-hidden aspect-[4/5] bg-rose-50">
         <img
           src={product.image}
@@ -56,6 +57,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
       </Link>
+
       <div className="pt-4 flex flex-col flex-grow">
         <h3 className="text-sm font-medium text-rose-950 group-hover:underline underline-offset-4 decoration-1">
           <Link to={`/shop/${product.id}`}>{product.name}</Link>

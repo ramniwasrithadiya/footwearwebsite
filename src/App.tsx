@@ -9,14 +9,16 @@ import { BulkOrders } from './pages/BulkOrders';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { FAQ } from './pages/FAQ';
-import { BecomeADealer } from './pages/BecomeADealer';
 import { ProductDetail } from './pages/ProductDetail';
 import { Login } from './pages/Login';
 import { Wishlist } from './pages/Wishlist';
 import { Profile } from './pages/Profile';
+import { Checkout } from './pages/Checkout';
 import { CartProvider } from './CartContext';
 import { AuthProvider } from './AuthContext';
 import { WishlistProvider } from './WishlistContext';
+import { ProductsProvider } from './ProductsContext';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
 
 function AppContent() {
   const location = useLocation();
@@ -34,11 +36,12 @@ function AppContent() {
           <Route path="/bulk-orders" element={<BulkOrders />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/become-a-dealer" element={<BecomeADealer />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
       {!isLoginPage && <Footer />}
@@ -50,13 +53,15 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <WishlistProvider>
-        <CartProvider>
-          <Router>
-            <AppContent />
-          </Router>
-        </CartProvider>
-      </WishlistProvider>
+      <ProductsProvider>
+        <WishlistProvider>
+          <CartProvider>
+            <Router>
+              <AppContent />
+            </Router>
+          </CartProvider>
+        </WishlistProvider>
+      </ProductsProvider>
     </AuthProvider>
   );
 }
